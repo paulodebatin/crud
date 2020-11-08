@@ -1,32 +1,34 @@
 <template>
   <div id="frmPessoaMan">
-    <CrudComponent :entidade="entidade" @atualizacao-entidade="atualizaEntidade"/>
+    <form>
+      <CrudComponent :entidade="entidade" @atualizacao-entidade="atualizaEntidade"/>
 
-    <div id="crudCampos">
-      <div class="form-group">
-        <label for="id">Id</label>
-        <input
-          class="form-control"
-          id="id"
-          required
-          v-model="entidade.id"
-          name="id"
-        />
+      <div id="crudCampos">
+        <div class="form-group">
+          <label for="id">Id</label>
+          <input
+            class="form-control"
+            id="id"
+            disabled="true"
+            v-model="entidade.id"
+            name="id"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            class="form-control"
+            id="nome"
+            required
+            v-model="entidade.nome"
+            placeholder="Nome"
+            name="nome"
+          />
+        </div>
+
       </div>
-      
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input
-          class="form-control"
-          id="nome"
-          required
-          v-model="entidade.nome"
-          name="nome"
-        />
-      </div>
-
-    </div>
-
+    </form>
   </div>
 </template>
 
