@@ -1,6 +1,12 @@
 import http from "../http-common";
 
-class PessoaService {
+class CrudService {
+ 
+
+  constructor(entidadeNome) {
+    this.entidadeNome = entidadeNome
+  }  
+
   getAll() {
     return http.get("/pessoas");
   }
@@ -24,4 +30,4 @@ class PessoaService {
 
 }
 
-export default new PessoaService();
+export default new CrudService();
