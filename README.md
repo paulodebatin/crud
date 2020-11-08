@@ -3,7 +3,7 @@
 O objetivo deste projeto é servir de base para um estudo básico de como construir um cadastro (CRUD) usando algumas tecnologias no no Front-End e no Back-End.
 Tecnologias usadas:
 
-## Front-End
+## Front-end
 * Vue.js - pasta: frontend-vuejs
 * React (a ser desenvolvido)
 * Angular (a ser desenvolvido)
