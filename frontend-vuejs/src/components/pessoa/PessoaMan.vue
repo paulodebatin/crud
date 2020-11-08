@@ -1,6 +1,6 @@
 <template>
   <div id="frmPessoaMan">
-    <CrudComponent :entity="entidade"/>
+    <CrudComponent :entidade="entidade" @atualizacao-entidade="atualizaEntidade"/>
 
     <div id="crudCampos">
       <div class="form-group">
@@ -32,7 +32,6 @@
 
 <script>
 import CrudComponent from '../CrudComponent.vue'
-import CrudService from "../../services/CrudService"
 
 export default {
   name: 'App',
@@ -40,25 +39,18 @@ export default {
     CrudComponent
   },
 
-  mounted () {
-      let id = this.$route.params.id
-      if  (id != undefined) {
-          console.log(id)
-          CrudService.get(id).then(response => {
-              console.log(response.data)
-              this.entidade = response.data
-            }).catch(error => console.log(error))
-          .finally(() => this.loading = false)
-      }
-   },
- 
-
   data() {
     return {
       entidade: {}
          
     }  
-  }
+  },
+
+  methods: {
+    atualizaEntidade (dados) {
+      this.entidade = dados 
+    }
+  }  
 }
 </script>
 

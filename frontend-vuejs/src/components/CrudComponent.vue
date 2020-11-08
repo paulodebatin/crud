@@ -12,45 +12,71 @@
 </template>
 
 <script>
-  //import CrudService from "../services/CrudService"
-  
-
+  import CrudService from "../services/CrudService"
+ 
   export default {
     name: 'CrudComponent',
     props: {
-      entity: Object
+      entidade: {}
     },
 
     methods: {
       excluir: function() {
         if  (confirm("Confirma a exclusão?")) {
-            console.log("Confirmado")
+            CrudService.delete(this.entidade.id)
+            this.novo() 
         }
 
       },
 
       gravar: function() {
-        console.log("gravar");
+        if  (this.estadoFormulario == "INSERCAO") {
+            CrudService.create(this.entidade).then(response => {
+              this.$emit('atualizacao-entidade',response.data)
+            })  
+        } else {
+            CrudService.update(this.entidade.id, this.entidade)
+        }
+        this.estadoFormulario="EDICAO"
       },
 
       clonar: function() {
-        console.log("clonar")
+        this.entidade.id = "";
+        this.$emit('atualizacao-entidade',this.entidade)
+        this.estadoFormulario="INSERCAO"
       },
 
       novo: function() {
-        console.log("novo")
+        this.$emit('atualizacao-entidade',{})
+        this.estadoFormulario="INSERCAO"
       },
 
       novaPesquisa: function() {
-        console.log("novaPesquisa")
+        console.log("novaPesquisa ainda não implementado")
       },
     },
 
-   
+   mounted () {
+      let id = this.$route.params.id
+      this.estadoFormulario="INSERCAO"
+      if  (id != undefined) {
+          CrudService.get(id).then(response => {
+              this.$emit('atualizacao-entidade',response.data)
+              this.estadoFormulario="EDICAO"
+
+            }).catch(error => {
+              console.log(error)
+              
+
+            }).finally(() => {
+              this.loading = false
+            })
+      }
+   },
     
    data() {
     return {
-      //entidade: {}
+      estadoFormulario: ""
     }  
   }
   

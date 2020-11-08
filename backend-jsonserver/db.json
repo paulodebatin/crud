@@ -1,7 +1,16 @@
 {
   "pessoas": [
-    {"id": 1, "nome": "Paulo" },
-    {"id": 2, "nome": "Regina" },
-    {"id": 3, "nome": "Lucas" }
+    {
+      "id": 1,
+      "nome": "Paulo"
+    },
+    {
+      "id": 2,
+      "nome": "Regina"
+    },
+    {
+      "id": 3,
+      "nome": "Lucas"
+    }
   ]
 }
