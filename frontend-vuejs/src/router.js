@@ -7,12 +7,16 @@ export default new Router({
   mode: "history",
   routes: [
     {
-        path: "/pessoas/:id",
+        path: "/pessoasman/:id",
         component: () => import("./components/pessoa/PessoaMan")
     },
     {
-        path: "/pessoas",
-        component: () => import("./components/pessoa/PessoaMan")
+      path: "/pessoasman",
+      component: () => import("./components/pessoa/PessoaMan")
+    },
+    {
+        path: "/pessoassel",
+        component: () => import("./components/pessoa/PessoaSel")
     },
 
 

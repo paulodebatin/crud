@@ -4,7 +4,7 @@
     <div class="alert alert-success" role="alert" id="div_mensagens" style="display: none;"/>
 
     <div id="barraBotoes">
-      <button type="submit" id="btnGravar" class="btn btn-primary" @click="gravar">Gravar</button>&nbsp;&nbsp;
+      <button type="button" id="btnGravar" class="btn btn-primary" @click="gravar">Gravar</button>&nbsp;&nbsp;
       <button type="button" id="btnNovo" class="btn btn-primary" @click="novo">Novo</button>&nbsp;&nbsp;
       <button type="button" id ="btnClonar" class="btn btn-primary" @click="clonar">Clonar</button>&nbsp;&nbsp;
       <button type="button" id="btnNovaPesquisa" class="btn btn-primary" @click="novaPesquisa">Nova pesquisa</button>&nbsp;&nbsp;
@@ -72,7 +72,7 @@
       },
 
       novaPesquisa: function() {
-        console.log("novaPesquisa ainda não implementado")
+        this.$router.push('/pessoassel')
       },
 
 
@@ -104,7 +104,6 @@
 
    mounted () {
       let id = this.$route.params.id
-      
 
       if  (id != undefined) {
           CrudService.get(id).then(response => {
