@@ -17,18 +17,18 @@
   export default {
     name: 'CrudComponent',
     props: {
-      entidade: []
+      nomeEntidade: String
     },
 
     methods: {
       pesquisar: function() {
-        CrudService.getAll().then(response => {
+        CrudService.getAll(this.nomeEntidade).then(response => {
             this.$emit('atualizacao-entidade',response.data)
         })   
       },
 
       novo: function() {
-        this.$router.push('/pessoasman')
+        this.$router.push(`/${this.nomeEntidade}cad`)
       }
     },
 

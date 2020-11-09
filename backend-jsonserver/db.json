@@ -10,11 +10,12 @@
     },
     {
       "id": 3,
-      "nome": "Lucas"
-    },
-    {
-      "id": 4,
-      "nome": "Lucas 2"
+      "nome": "Lucas",
+      "endereco": "Rua Grevsmuelh",
+      "numero": "32",
+      "bairro": "Glória",
+      "cidade": "Blumenau",
+      "uf": "SC"
     }
   ]
 }
