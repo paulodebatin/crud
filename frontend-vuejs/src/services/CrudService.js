@@ -3,28 +3,24 @@ import http from "../http-common";
 class CrudService {
  
 
-  constructor(entidadeNome) {
-    this.entidadeNome = entidadeNome
-  }  
-
-  getAll() {
-    return http.get("/pessoas");
+  getAll(nomeEntidade) {
+    return http.get(`/${nomeEntidade}`);
   }
 
-  get(id) {
-    return http.get(`/pessoas/${id}`);
+  get(nomeEntidade,id) {
+    return http.get(`/${nomeEntidade}/${id}`);
   }
 
-  create(data) {
-    return http.post("/pessoas", data);
+  create(nomeEntidade,data) {
+    return http.post(`/${nomeEntidade}`, data);
   }
 
-  update(id, data) {
-    return http.put(`/pessoas/${id}`, data);
+  update(nomeEntidade, id, data) {
+    return http.put(`/${nomeEntidade}/${id}`, data);
   }
 
-  delete(id) {
-    return http.delete(`/pessoas/${id}`);
+  delete(nomeEntidade,id) {
+    return http.delete(`/${nomeEntidade}/${id}`);
   }
 
 

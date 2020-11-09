@@ -16,3 +16,5 @@ Tecnologias usadas:
 * Python (a ser desenvolvido)
 
 Para startar o front-end e o back-end entrar em cada pasta e verificar instruções.
+
+Após startado, acesse o browser no endereço: http://localhost:8080/pessoassel

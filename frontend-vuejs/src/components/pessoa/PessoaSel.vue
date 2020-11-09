@@ -1,7 +1,7 @@
 <template>
   <div id="frmPessoaSel">
     <form>
-      <PesquisaComponent :entidade="entidade" @atualizacao-entidade="atualizaEntidade"/>
+      <PesquisaComponent nomeEntidade="pessoas" @atualizacao-entidade="atualizaEntidade"/>
 
       <table class="table table-striped">
         <thead>
@@ -12,7 +12,7 @@
         </thead>
         <tbody>
           <tr v-for="item in entidade" v-bind:key="item.id">
-            <td><a :href="'pessoasman/' + item.id">{{ item.id }}</a></td>
+            <td><a :href="'pessoascad/' + item.id">{{ item.id }}</a></td>
             <td>{{ item.nome }}</td>
           </tr>
         </tbody>
