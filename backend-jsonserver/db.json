@@ -14,8 +14,10 @@
       "endereco": "Rua Grevsmuelh",
       "numero": "32",
       "bairro": "Glória",
-      "cidade": "Blumenau",
-      "uf": "SC"
+      "cidade": "2",
+      "uf": "1",
+      "receberNoticias": true,
+      "fumante": "N"
     }
   ]
 }
