@@ -17,7 +17,35 @@
       "cidade": "2",
       "uf": "1",
       "receberNoticias": true,
-      "fumante": "N"
+      "fumante": "N",
+      "cep": "89025200",
+      "dataNascimento": "10/08/2010"
+    }
+  ],
+  "produtos": [
+    {
+      "nome": "Caneta",
+      "quantidade": "100",
+      "preco": "2,50",
+      "id": 1
+    },
+    {
+      "nome": "Lápis",
+      "quantidade": "200",
+      "preco": "1,75",
+      "id": 2
+    },
+    {
+      "nome": "Borracha",
+      "quantidade": "300",
+      "preco": "1,50",
+      "id": 3
+    },
+    {
+      "nome": "Caderno",
+      "quantidade": "70",
+      "preco": "15,00",
+      "id": 4
     }
   ]
 }

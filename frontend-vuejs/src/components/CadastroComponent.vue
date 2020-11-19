@@ -29,14 +29,16 @@
 
 
 
-    <div id="barraBotoes">
+    <div id="barraBotoesCadastro">
       <button type="button" id="btnGravar" class="btn btn-primary" @click="gravar">Gravar</button>&nbsp;&nbsp;
       <button type="button" id="btnNovo" class="btn btn-primary" @click="novo">Novo</button>&nbsp;&nbsp;
       <button type="button" id ="btnClonar" v-if="estadoFormulario == 'EDICAO'" class="btn btn-primary" @click="clonar">Clonar</button>&nbsp;&nbsp;
       <button type="button" id="btnNovaPesquisa" class="btn btn-primary" @click="novaPesquisa">Nova pesquisa</button>&nbsp;&nbsp;
       <button type="button" id="btnExcluir" v-if="estadoFormulario == 'EDICAO'" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>
       <hr/>
-    </div> 
+    </div>
+
+
   </div>
 </template>
 
@@ -46,8 +48,15 @@
   export default {
     name: 'CadastroComponent',
     props: {
-      entidade: {},
-      nomeEntidade: String
+      entidade: {
+        nome: String,
+        dados: {}
+
+      }
+    },
+
+    created() {
+        this.CrudService = new CrudService(this.entidade.nome);
     },
 
     data() {
@@ -61,7 +70,7 @@
     methods: {
       excluir: function() {
         this.limparMensagem();
-        CrudService.delete(this.nomeEntidade, this.entidade.id)
+        this.CrudService.delete(this.entidade.dados.id)
         this.novo() 
 
         this.mensagemSucesso = "Registro excluído com sucesso!";
@@ -71,11 +80,11 @@
       gravar: function() {
         this.limparMensagem();
         if  (this.estadoFormulario == "INSERCAO") {
-            CrudService.create(this.nomeEntidade,this.entidade).then(response => {
+            this.CrudService.create(this.entidade.dados).then(response => {
               this.$emit('atualizacao-entidade',response.data)
             })  
         } else {
-            CrudService.update(this.nomeEntidade,this.entidade.id, this.entidade)
+            this.CrudService.update(this.entidade.dados.id, this.entidade.dados)
         }
         this.estadoFormulario="EDICAO"
         this.mensagemSucesso = "Registro gravado com sucesso!";
@@ -83,9 +92,9 @@
 
       clonar: function() {
         this.limparMensagem();
-        this.entidade.id = "";
+        this.entidade.dados.id = "";
         this.estadoFormulario="INSERCAO"
-        this.$emit('atualizacao-entidade',this.entidade)
+        this.$emit('atualizacao-entidade',this.entidade.dados)
 
         this.mensagemSucesso = "Registro clonado com sucesso!";
         this.setarFoco();
@@ -99,7 +108,7 @@
       },
 
       novaPesquisa: function() {
-        this.$router.push('/' + this.nomeEntidade + 'sel')
+        this.$router.push('/' + this.entidade.nome + '/pesquisa')
       },
 
 
@@ -118,7 +127,7 @@
       let id = this.$route.params.id
 
       if  (id != undefined) {
-          CrudService.get(this.nomeEntidade,id).then(response => {
+          this.CrudService.get(id).then(response => {
               this.$emit('atualizacao-entidade',response.data)
               this.estadoFormulario="EDICAO"
             }).catch(error => {
@@ -141,7 +150,9 @@
 
 
 <style scoped>
-  #barraBotoes {
-    text-align: center;
+  #barraBotoesCadastro {
+    text-align: right;
   }
+
+
 </style>

@@ -1,29 +1,32 @@
 import http from "../http-common";
 
-class CrudService {
+export default class CrudService {
+
+  constructor (nomeEntidade) {
+    this.nomeEntidade = nomeEntidade
  
-
-  getAll(nomeEntidade) {
-    return http.get(`/${nomeEntidade}`);
   }
 
-  get(nomeEntidade,id) {
-    return http.get(`/${nomeEntidade}/${id}`);
+  getAll() {
+    return http.get(`/${this.nomeEntidade}`);
   }
 
-  create(nomeEntidade,data) {
-    return http.post(`/${nomeEntidade}`, data);
+  get(id) {
+    return http.get(`/${this.nomeEntidade}/${id}`);
   }
 
-  update(nomeEntidade, id, data) {
-    return http.put(`/${nomeEntidade}/${id}`, data);
+  create(data) {
+    return http.post(`/${this.nomeEntidade}`, data);
   }
 
-  delete(nomeEntidade,id) {
-    return http.delete(`/${nomeEntidade}/${id}`);
+  update(id, data) {
+    return http.put(`/${this.nomeEntidade}/${id}`, data);
+  }
+
+  delete(id) {
+    return http.delete(`/${this.nomeEntidade}/${id}`);
   }
 
 
 }
 
-export default new CrudService();

@@ -3,11 +3,35 @@
 
     <div class="alert alert-success" role="alert" id="div_mensagens" style="display: none;"/>
 
-    <div id="barraBotoes">
+    <div id="barraBotoesPesquisa">
       <button type="submit" id="btnPesquisar" class="btn btn-primary" @click="pesquisar">Pesquisar</button>&nbsp;&nbsp;
       <button type="button" id="btnNovo" class="btn btn-primary" @click="novo">Novo</button>&nbsp;&nbsp;
     </div> 
     <br/>
+
+    <slot name="camposFiltro"></slot>
+    
+    <slot name="tabelaResultado">
+        <slot name="cabecalho"></slot>
+    </slot>
+    
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Anterior</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Próximo</a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+
   </div>
 </template>
 
@@ -17,18 +41,22 @@
   export default {
     name: 'CrudComponent',
     props: {
-      nomeEntidade: String
+      entidade: {}
+    },
+
+    created() {
+        this.CrudService = new CrudService(this.entidade.nome);
     },
 
     methods: {
       pesquisar: function() {
-        CrudService.getAll(this.nomeEntidade).then(response => {
+        this.CrudService.getAll().then(response => {
             this.$emit('atualizacao-entidade',response.data)
         })   
       },
 
       novo: function() {
-        this.$router.push(`/${this.nomeEntidade}cad`)
+        this.$router.push(`/${this.entidade.nome}/cadastro`)
       }
     },
 
@@ -47,7 +75,7 @@
 
 
 <style scoped>
-  #barraBotoes {
-    text-align: center;
+  #barraBotoesPesquisa {
+    text-align: right;
   }
 </style>
