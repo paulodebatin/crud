@@ -1,12 +1,13 @@
 # CRUD
 
-O objetivo deste projeto é servir de base para um estudo básico de como construir um cadastro (CRUD) usando algumas tecnologias no no Front-End e no Back-End.
+O objetivo deste projeto é servir de base para um estudo de como construir um cadastro (CRUD) usando algumas tecnologias no Front-End e no Back-End. Para isso foi construído uma tela de menu que dá acesso a dois cadastros (pessoa e produto). Cada cadastro tem sua listagem/pesquisa e sua tela de manutenção.
 Tecnologias usadas:
 
 ## Front-end
 * Vue.js - pasta: frontend-vuejs
+* Angular - pasta: frontend-angular
 * React (a ser desenvolvido)
-* Angular (a ser desenvolvido)
+
 
 ## Back-end:
 * Json Server - pasta: backend-jsonserver
@@ -17,4 +18,4 @@ Tecnologias usadas:
 
 Para startar o front-end e o back-end entrar em cada pasta e verificar instruções.
 
-Após startado, acesse o browser no endereço: http://localhost:8080/pessoassel
+
