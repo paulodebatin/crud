@@ -3,12 +3,9 @@
     <form>
       <CadastroComponent :entidade="entidade"  @atualizacao-entidade="atualizaEntidade"/>
 
+
       <div id="crudCampos">
         <div class="form-row">
-            <div class="form-group col-md-2">
-                <label for="id">Id</label>
-                <input class="form-control" id="id" disabled="true" v-model="entidade.dados.id" name="id"/>
-            </div>
             <div class="form-group col-md-10 required">
                 <label for="nome">Nome</label>
                 <input class="form-control" id="nome" required v-model="entidade.dados.nome" placeholder="Nome" name="nome"/>
@@ -24,10 +21,6 @@
                 <input class="form-control" id="preco" v-model="entidade.dados.preco" placeholder="Preço" name="preco">
             </div>
         </div>
-
-
-
-
       </div>
     </form>
   </div>
@@ -39,7 +32,7 @@ import CadastroComponent from '../../components/CadastroComponent.vue'
 export default {
   name: 'App',
   components: {
-    CadastroComponent,
+    CadastroComponent
   },
 
   data() {
@@ -48,7 +41,8 @@ export default {
         nome: "produtos",
         dados: {}
 
-      }
+      },
+      value: null
     }  
   },
 
