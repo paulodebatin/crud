@@ -1,6 +1,0 @@
-- Ao salvar não está validando campos obrigatórios
-
-- Colocar novos campos Endereço (inputtext), número (input somente números), Bairro (inputtext), Cidade (combo buscando em banco), 
-Estado (combo itens fixos), email (input email), Receber promoçoes (checkbox),fumante (radiobox Sim/Não)
-
-- Em CrudService, chamadas para api estão fixas "/pessoas"
