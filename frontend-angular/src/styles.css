@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+#app {
+    margin-top: 0px;
+    margin-left:3px;
+    margin-right: 5px;
+  }
+  
+  .required label {
+      font-weight: bold;
+  }
+  .required label:after {
+      color: #e32;
+      content: ' *';
+      display:inline;
+  }
