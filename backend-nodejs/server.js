@@ -8,10 +8,10 @@ const routePessoa = require("./app/routes/PessoaRoute.js");
 const routeProduto = require("./app/routes/ProdutoRoute.js");
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  //origin: "http://localhost:8081",
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.json());
 
