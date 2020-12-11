@@ -8,7 +8,7 @@ import { Entidade } from 'src/app/entidade-model'
 })
 export class CadastroComponent {
 
-  entidade: Entidade = new Entidade();
+  entidade: Entidade = new Entidade("pessoas");
 
   paises = [
       { id: '1', nome: 'Blumenau',},

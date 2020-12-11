@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { CrudService } from 'src/app/services/crud.service';
 import { Entidade } from 'src/app/entidade-model'
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -19,11 +20,14 @@ export class CadastroBase implements OnInit {
     estadoFormulario: any;
     mensagemErro: any = '';
     mensagemSucesso: any = '';
+
+    crudService: CrudService
     
 
-    constructor(private route: ActivatedRoute, private router: Router, private crudService: CrudService) { }
+    constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
     ngOnInit(): void {
+        this.crudService = new CrudService(this.entidade.nome, this.http);
         this.estadoFormulario = "INSERCAO"
         let id = this.route.snapshot.paramMap.get('id');
         if  (id) {
@@ -122,7 +126,7 @@ export class CadastroBase implements OnInit {
     }
 
     novaPesquisa(): void {
-        this.router.navigate(['/pessoas/pesquisa']);
+        this.router.navigate([`/${this.entidade.nome}/pesquisa`]);
     }
 }
 

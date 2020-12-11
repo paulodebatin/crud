@@ -29,11 +29,11 @@
 
 
     <div id="barraBotoesCadastro">
-      <button type="button" id="btnGravar" class="btn btn-primary" (click)="gravar()">Gravar</button>&nbsp;&nbsp;
-      <button type="button" id="btnNovo" class="btn btn-primary" (click)="novo()">Novo</button>&nbsp;&nbsp;
-      <button type="button" id ="btnClonar" *ngIf="estadoFormulario == 'EDICAO'" class="btn btn-primary" (click)="clonar()">Clonar</button>&nbsp;&nbsp;
-      <button type="button" id="btnNovaPesquisa" class="btn btn-primary" (click)="novaPesquisa()">Nova pesquisa</button>&nbsp;&nbsp;
-      <button type="button" id="btnExcluir" *ngIf="estadoFormulario == 'EDICAO'" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>
+      <button type="button" id="btnGravar" class="btn btn-primary" (click)="gravar()">Gravar</button>&nbsp;
+      <button type="button" id="btnNovo" class="btn btn-primary" (click)="novo()">Novo</button>&nbsp;
+      <button type="button" id ="btnClonar" [hidden]="estadoFormulario != 'EDICAO'" class="btn btn-primary" (click)="clonar()">Clonar</button>&nbsp;
+      <button type="button" id="btnNovaPesquisa" class="btn btn-primary" (click)="novaPesquisa()">Nova pesquisa</button>&nbsp;
+      <button type="button" id="btnExcluir" [hidden]="estadoFormulario != 'EDICAO'" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>
       <hr/>
     </div>
 

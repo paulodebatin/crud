@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Entidade } from 'src/app/entidade-model';
 
 @Component({
   selector: 'pessoa-pesquisa',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PesquisaComponent {
 
-  entidade: any = [];
+  entidade: Entidade = new Entidade("pessoas");
+  
   
 }

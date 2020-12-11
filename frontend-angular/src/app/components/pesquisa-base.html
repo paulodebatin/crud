@@ -3,17 +3,17 @@
   <div class="alert alert-success" role="alert" id="div_mensagens" style="display: none;"></div>
 
   <div id="barraBotoesPesquisa">
-    <button type="submit" id="btnPesquisar" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>&nbsp;&nbsp;
-    <button type="button" id="btnNovo" class="btn btn-primary" (click)="novo()">Novo</button>&nbsp;&nbsp;
+    <button type="submit" id="btnPesquisar" class="btn btn-primary" (click)="pesquisar()">Pesquisar</button>&nbsp;
+    <button type="button" id="btnNovo" class="btn btn-primary" (click)="novo()">Novo</button>
   </div> 
   <br/>
 
   <div>
-    <ng-content select=".camposFiltro"></ng-content>
+    <ng-content select=".camposFiltros"></ng-content>
   </div>
 
   <div>
-    <ng-content select="tabelaResultado" ></ng-content>
+    <ng-content select=".tabelaResultado" ></ng-content>
   </div>
 
   <nav aria-label="Page navigation example">

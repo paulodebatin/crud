@@ -6,6 +6,7 @@ São 2 cruds: cadastro de pessoa e cadastro de produto.
 ### Tecnologias utilizadas no projeto:
 * Backend com Java e Spring Boot
 * Backend com Json Server
+* Backend com Nodejs
 * Frontend com Vuejs
 * Frontend com Angular
 
