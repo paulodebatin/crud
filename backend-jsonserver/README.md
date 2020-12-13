@@ -3,7 +3,6 @@
 ## Project setup (somente a primeira vez)
 ```
 npm install -g json-server
-json-server --watch db.json
 ```
 
 ## Iniciar 

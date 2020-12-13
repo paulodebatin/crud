@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Cadastros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,6 +54,10 @@ export default {
     color: #e32;
     content: ' *';
     display:inline;
+}
+
+input:required  {
+    border-left:4px solid #e32
 }
 
 

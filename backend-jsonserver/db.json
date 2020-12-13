@@ -19,7 +19,7 @@
       "receberNoticias": true,
       "fumante": "N",
       "cep": "89025200",
-      "dataNascimento": "10/08/2010"
+      "dataNascimento": "2020-12-11"
     },
     {
       "id": 4,
@@ -32,13 +32,14 @@
       "receberNoticias": true,
       "fumante": "N",
       "cep": "89025200",
-      "dataNascimento": "10/08/2010"
-    }
+      "dataNascimento": "2020-12-12"
+    },
+    []
   ],
   "produtos": [
     {
       "nome": "Caneta",
-      "quantidade": "100",
+      "quantidade": 150,
       "preco": "2,50",
       "id": 1
     },

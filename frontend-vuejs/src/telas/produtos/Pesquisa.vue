@@ -1,6 +1,10 @@
 <template v-slot:gridResultado>
-  <div id="frmPessoaSel">
       <PesquisaComponent :entidade="entidade" @atualizacao-entidade="atualizaEntidade">
+
+        <template slot="definicaoTituloTela">Pesquisa de produtos</template>
+        <template slot="definicaoBotoesPersonalizados"></template>
+        <template slot="definicaoLinksPersonalizados"></template>
+        <template slot="camposFiltro"></template>  
 
         <template slot="camposFiltro"></template>  
 
@@ -26,7 +30,6 @@
         </template>
 
       </PesquisaComponent>       
-  </div>
 </template>
 
 <script>
@@ -34,6 +37,7 @@ import PesquisaComponent from '../../components/PesquisaComponent.vue'
 
 export default {
   name: 'App',
+  extends: PesquisaComponent,
   components: {
     PesquisaComponent
   },
@@ -50,7 +54,11 @@ export default {
   methods: {
     atualizaEntidade (dados) {
       this.entidade.dados = dados 
-    }
+    },
+
+    
+
+    
   },
 
 }

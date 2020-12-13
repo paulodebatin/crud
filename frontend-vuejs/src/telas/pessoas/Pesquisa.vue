@@ -2,6 +2,9 @@
   <div id="frmPessoaSel">
       <PesquisaComponent :entidade="entidade" @atualizacao-entidade="atualizaEntidade">
 
+        <template slot="definicaoTituloTela">Pesquisa de pessoas</template>
+        <template slot="definicaoBotoesPersonalizados"></template>
+        <template slot="definicaoLinksPersonalizados"></template>
         <template slot="camposFiltro"></template>  
 
         <template slot="tabelaResultado"> 

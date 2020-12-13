@@ -1,44 +1,57 @@
 <template>
   <div class="crud">
+    <form  @submit.prevent="gravar">
+      <div id="divMensagens">
+        <div class="alert alert-primary" v-if="mensagemSucesso != ''" role="alert" id="div_mensagemSucesso">{{mensagemSucesso}}</div>
+        <div class="alert alert-danger" v-if="mensagemErro != ''" role="alert" id="div_mensagemErro" >{{mensagemErro}}</div>
+      </div>
 
-    <div id="divMensagens">
-      <div class="alert alert-primary" v-if="mensagemSucesso != ''" role="alert" id="div_mensagemSucesso">{{mensagemSucesso}}</div>
-      <div class="alert alert-danger" v-if="mensagemErro != ''" role="alert" id="div_mensagemErro" >{{mensagemErro}}</div>
-    </div>
 
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Confirma a exclusão do registro?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal" @click="excluir">Sim</button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Confirma a exclusão do registro?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" @click="excluir">Sim</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
 
 
-    <div id="barraBotoesCadastro">
-      <button type="button" id="btnGravar" class="btn btn-primary" @click="gravar">Gravar</button>&nbsp;&nbsp;
-      <button type="button" id="btnNovo" class="btn btn-primary" @click="novo">Novo</button>&nbsp;&nbsp;
-      <button type="button" id ="btnClonar" v-if="estadoFormulario == 'EDICAO'" class="btn btn-primary" @click="clonar">Clonar</button>&nbsp;&nbsp;
-      <button type="button" id="btnNovaPesquisa" class="btn btn-primary" @click="novaPesquisa">Nova pesquisa</button>&nbsp;&nbsp;
-      <button type="button" id="btnExcluir" v-if="estadoFormulario == 'EDICAO'" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>
-      <hr/>
-    </div>
+      <div class="form-row">
+          <div class="col-md-2"><p class="h4 text-primary"><slot name="definicaoTituloTela"></slot></p> </div>
+          <div class="col-md-10" id="barraBotoesCadastro" style="text-align: right; ">
+            <button type="submit" id="btnGravar" class="btn btn-primary">Gravar</button>&nbsp;&nbsp;
+            <button type="button" id="btnNovo" class="btn btn-primary" @click="novo">Novo</button>&nbsp;&nbsp;
+            <button type="button" id ="btnClonar" v-if="estadoFormulario == 'EDICAO'" class="btn btn-primary" @click="clonar">Clonar</button>&nbsp;&nbsp;
+            <button type="button" id="btnNovaPesquisa" class="btn btn-primary" @click="novaPesquisa">Nova pesquisa</button>&nbsp;&nbsp;
+            <button type="button" id="btnExcluir" v-if="estadoFormulario == 'EDICAO'" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>&nbsp;&nbsp;
+            <slot name="definicaoBotoesPersonalizados"></slot>
+          </div>
+      </div>
+
+        <hr/>
+
+        <div>
+          <slot name="definicaoLinksPersonalizados"></slot>
+        </div>
+
+         <slot name="definicacaoCampos"></slot>
 
 
+
+    </form>
   </div>
 </template>
 
