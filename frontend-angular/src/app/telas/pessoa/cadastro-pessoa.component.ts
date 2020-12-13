@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { Entidade } from 'src/app/entidade-model'
+import { CadastroBase } from 'src/app/components/cadastro/cadastro-base.component';
+import { Entidade } from 'src/app/model/entidade-model'
 
 
 @Component({
-  selector: 'pessoa-cadastro',
-  templateUrl: './cadastro.component.html',
+  selector: 'cadastro-pessoa',
+  templateUrl: './cadastro-pessoa.component.html',
 })
-export class CadastroComponent {
+export class CadastroPessoaComponent extends CadastroBase {
 
   entidade: Entidade = new Entidade("pessoas");
 
@@ -22,5 +23,7 @@ export class CadastroComponent {
     { id: '2', nome: 'Paraná'},
     { id: '3', nome: 'Rio grande do Sul'},
   ]
+
+  
 
 }

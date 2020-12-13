@@ -1,0 +1,88 @@
+<cadastro-base [entidade]="entidade">
+
+    <span class="definicaoTituloTela">Cadastro de pessoas</span>
+    <span class="definicaoBotoesPersonalizados"></span>
+    <span class="definicaoLinksPersonalizados"></span>
+
+
+    <div class="definicacaoCampos">
+
+      <div class="form-row">
+          <div class="form-group col-md-2">
+              <label for="id">Id</label>
+              <input class="form-control" id="id" disabled="true"  [(ngModel)]="entidade.dados.id"  name="id"/>
+          </div>
+          <div class="form-group col-md-10 required" > 
+              <label for="nome">Nome</label>
+              <input class="form-control" id="nome" [(ngModel)]="entidade.dados.nome" placeholder="Nome" name="nome" required/>
+          </div>
+      </div>      
+
+      <div class="form-row">
+          <div class="form-group col-md-10">
+              <label for="endereco">Endereço</label>
+              <input class="form-control" id="endereco" [(ngModel)]="entidade.dados.endereco" placeholder="Endereço" name="endereco" />
+          </div>
+          <div class="form-group col-md-2">
+              <label for="numero">Número</label>
+              <input type="number" class="form-control" id="numero" [(ngModel)]="entidade.dados.numero" placeholder="Número" name="numero">
+          </div>
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-10">
+            <label for="bairro">Bairro</label>
+            <input class="form-control" id="bairro" [(ngModel)]="entidade.dados.bairro" placeholder="Bairro" name="bairro"/>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="cep">Cep</label>
+            <input class="form-control" id="cep" [(ngModel)]="entidade.dados.cep" placeholder="Cep" name="cep"/>
+          </div>
+      </div>
+
+      <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="cidade">Cidade</label>
+            <select id="cidade" class="form-control"  [(ngModel)]="entidade.dados.cidade" [ngModelOptions]="{standalone: true}" >
+              <option [ngValue]="pais.id" *ngFor="let pais of paises">{{pais.nome}}</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="uf">Uf</label>
+            <select id="uf" class="form-control"  [(ngModel)]="entidade.dados.uf" [ngModelOptions]="{standalone: true}" >
+              <option [ngValue]="uf.id" *ngFor="let uf of ufs">{{uf.nome}}</option>
+            </select>
+          </div>
+      </div>   
+
+      <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="dataNascimento">Data de nascimento</label>
+            <input type="date" class="form-control" id="dataNascimento"  [(ngModel)]="entidade.dados.dataNascimento" placeholder="Data de nascimento"  name="dataNascimento"/>
+          </div>
+          <div class="form-group col-md-4">
+              <label class="form-check-label" for="receberNoticias">Receber notícias</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="receberNoticias" [(ngModel)]="entidade.dados.receberNoticias" [ngModelOptions]="{standalone: true}">
+              </div>  
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="uf">Fumante:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fumante" id="fumanteSim" value="S" [(ngModel)]="entidade.dados.fumante" > 
+              <label class="form-check-label" for="fumanteSim">Sim</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fumante" id="fumanteNao" value="N" [(ngModel)]="entidade.dados.fumante">
+              <label class="form-check-label" for="fumanteNao">Não</label>
+            </div>
+          </div>
+          
+      </div>
+  </div>
+
+</cadastro-base>
+
+

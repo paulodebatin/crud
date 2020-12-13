@@ -8,6 +8,12 @@ export class Entidade {
     this.dados = dados;
    }
 
+   getLinkCadastro(): String {
+     return `/${this.nome}/cadastro`;
+   }
+
+   
+
 
 
   } 
