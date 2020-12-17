@@ -1,0 +1,22 @@
+@import "./variaveis";
+
+#app {
+    margin-top: 0px;
+    margin-left:3px;
+    margin-right: 5px;
+}
+  
+
+.required label {
+    font-weight: bold;
+}
+
+.required label:after {
+    color: #e32;
+    content: ' *';
+    display:inline;
+}
+
+input:required, select:required  {
+    border-left:4px solid #e32
+}

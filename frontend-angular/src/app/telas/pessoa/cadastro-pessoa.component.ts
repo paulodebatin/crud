@@ -24,6 +24,10 @@ export class CadastroPessoaComponent extends CadastroBase {
     { id: '3', nome: 'Rio grande do Sul'},
   ]
 
-  
+  antesGravar():void {
+    console.log("cadastrar");
+    this.setaMensagemErro("dasdasd");
+    return;
+  }
 
 }

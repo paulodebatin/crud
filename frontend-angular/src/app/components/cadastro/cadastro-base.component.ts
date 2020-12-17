@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 import { CrudService } from 'src/app/services/crud.service';
 import { Entidade } from 'src/app/model/entidade-model'
-import { HttpClient } from '@angular/common/http';
+import { EstadoFormulario } from 'src/app/model/estado-formulario'
 
 
 @Component({
@@ -28,7 +30,7 @@ export class CadastroBase implements OnInit {
 
     ngOnInit(): void {
         this.crudService = new CrudService(this.entidade, this.http);
-        this.estadoFormulario = "INSERCAO"
+        this.estadoFormulario = EstadoFormulario.INSERCAO;
         let id = this.route.snapshot.paramMap.get('id');
         if  (id) {
             this.carregarEntidade(id)
@@ -40,7 +42,7 @@ export class CadastroBase implements OnInit {
         this.crudService.get(id).subscribe(
             data => {
                 this.entidade.dados = data;
-                this.estadoFormulario = "EDICAO"
+                this.estadoFormulario = EstadoFormulario.EDICAO;
                 this.aposCarregar();
             },
             error => {
@@ -60,7 +62,7 @@ export class CadastroBase implements OnInit {
     gravar(): void {
         this.limparMensagem();
         this.antesGravar();
-        if  (this.estadoFormulario == "INSERCAO") {
+        if  (this.estadoFormulario == EstadoFormulario.INSERCAO) {
             this.crudService.create(this.entidade.dados).subscribe(
                 data => {
                     this.entidade.dados = data;
@@ -95,7 +97,7 @@ export class CadastroBase implements OnInit {
 
     novo(): void {
         this.limparMensagem();
-        this.estadoFormulario="INSERCAO";
+        this.estadoFormulario = EstadoFormulario.INSERCAO;
         this.entidade.dados = {};
         this.setarFoco();
         this.aposNovo();
@@ -127,7 +129,7 @@ export class CadastroBase implements OnInit {
     clonar(): void {
         this.limparMensagem();
         this.entidade.dados.id = "";
-        this.estadoFormulario="INSERCAO"
+        this.estadoFormulario = EstadoFormulario.INSERCAO;
         this.mensagemSucesso = "Registro clonado com sucesso!";
         this.setarFoco();
         this.aposClonar();
@@ -138,6 +140,10 @@ export class CadastroBase implements OnInit {
         this.router.navigate([`/${this.entidade.nome}/pesquisa`]);
     }
 
+    formularioEmEdicao(): boolean {
+        return this.estadoFormulario == EstadoFormulario.EDICAO;
+    }
+
     // métodos para ser subscritos em seus descendentes
     aposGravar() {}
     antesGravar() {}
@@ -146,6 +152,10 @@ export class CadastroBase implements OnInit {
     aposClonar() {}
     aposNovo() {}
     aposCarregar() {}
+
+    setaMensagemErro(msg): void {
+        this.mensagemErro = msg;
+    }
 
 
 

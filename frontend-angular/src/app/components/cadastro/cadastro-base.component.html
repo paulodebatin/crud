@@ -5,7 +5,7 @@
     <div class="alert alert-danger" *ngIf="mensagemErro != ''" role="alert" id="div_mensagemErro" >{{mensagemErro}}</div>
   </div>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -27,13 +27,13 @@
 
 
   <div class="form-row">
-    <div class="col-md-2"><p class="h4 text-primary"><ng-content select=".definicaoTituloTela"></ng-content></p> </div>
-    <div class="col-md-10" id="barraBotoesCadastro" style="text-align: right; ">
+    <div class="col-md-4"><p class="h4 text-primary"><ng-content select=".definicaoTituloTela"></ng-content></p> </div>
+    <div class="col-md-8" id="barraBotoesCadastro" style="text-align: right; ">
       <button type="submit" id="btnGravar" class="btn btn-primary" (click)="form.checkValidity()? gravar() : null">Gravar</button>&nbsp;
       <button type="button" id="btnNovo" class="btn btn-primary" (click)="novo()">Novo</button>&nbsp;
-      <button type="button" id ="btnClonar" [hidden]="estadoFormulario != 'EDICAO'" class="btn btn-primary" (click)="clonar()">Clonar</button>&nbsp;
+      <button type="button" id ="btnClonar" [hidden]="!formularioEmEdicao()" class="btn btn-primary" (click)="clonar()">Clonar</button>&nbsp;
       <button type="button" id="btnNovaPesquisa" class="btn btn-primary" (click)="novaPesquisa()">Nova pesquisa</button>&nbsp;
-      <button type="button" id="btnExcluir" [hidden]="estadoFormulario != 'EDICAO'" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>&nbsp;
+      <button type="button" id="btnExcluir" [hidden]="!formularioEmEdicao()" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>&nbsp;
       <ng-content select=".definicaoBotoesPersonalizados"></ng-content>
     </div>   
   </div>
