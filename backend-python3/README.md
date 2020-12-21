@@ -7,14 +7,14 @@ Qualquer mudança neste endereço você precisa alterar no arquivo database.yaml
 * Python 3
 * Bibliotecas utilizadas instaladas: Para instalar:
 ```
-cd backend-python
+cd backend-python3
 pip3 install flask flask_cors Flask-SQLAlchemy psycopg2 flask-marshmallow marshmallow-sqlalchemy marshmallow
 ```
 
 ### Para colocar no ar:
 
 ```
-cd backend-python
+cd backend-python3
 python3 app.py
 ```
 
