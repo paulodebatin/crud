@@ -7,7 +7,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm start
 ```
 O serviço é startado na porta 8080.
 Para acessar o sistema, acesse por exemplo o link: http://localhost:8080/pessoas/pesquisa

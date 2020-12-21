@@ -6,7 +6,6 @@
         <template slot="definicaoBotoesPersonalizados"></template>
         <template slot="definicaoLinksPersonalizados"></template>
         <template slot="camposFiltro"></template>  
-
         <template slot="tabelaResultado"> 
           <table  class="table table-hover">
             <thead class="thead-light">

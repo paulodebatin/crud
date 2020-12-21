@@ -11,15 +11,21 @@ export default  class CadastroBase extends Component {
       this.novaPesquisa = this.novaPesquisa.bind(this);
       this.excluir = this.excluir.bind(this);
 
+
   }; 
 
   componentWillMount = () => {
+    this.setState({   
+      dados : {}
+    })
+
     var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
     if  (id) {
         this.editar(id);
     } else {
         this.novo();
     }
+    
   }
 
   limparMensagem = () => {
@@ -32,15 +38,21 @@ export default  class CadastroBase extends Component {
 
   novo = () => {
     console.log("novo");
+    this.props.entidade.nome="";
+
     this.limparMensagem();
     this.setState({   
-      dados : "",
+      dados : {},
+      nome : "",
+      mensagemSucesso: "Novo",
       estadoFormulario: "INSERCAO"
     }); 
   }
 
   gravar = () => {
     console.log("gravar")
+    console.log(this.state.dados)
+    console.log("props="+this.props.entidade.nome)
     this.setState({   
       mensagemSucesso : "Registro gravado com sucesso!"
     }); 
@@ -52,10 +64,13 @@ export default  class CadastroBase extends Component {
       CrudService.get(id)
         .then(response => {
           console.log(response.data)
+          
           this.setState({   
             dados : response.data,
+            nome : response.data.nome,
             estadoFormulario: "EDICAO"
           }); 
+          this.props.entidade.nome=response.data.nome
         })
         .catch(e => {
           console.log(e);
@@ -91,6 +106,7 @@ export default  class CadastroBase extends Component {
     console.log("render");
     return (
       <div className="cadastro">
+      
         <form>
 
 

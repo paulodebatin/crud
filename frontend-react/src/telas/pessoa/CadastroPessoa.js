@@ -1,18 +1,29 @@
-import React from 'react'
+import { React, Component } from 'react'
 import CadastroBase from '../../componentes/CadastroBase';
 
 export default class CadastroPessoa extends CadastroBase {
-   
-    
-    render() { 
 
-        let dados = this.state.dados;
+    entidade = {
+
+    }
+
+    render() { 
+        console.log("rebder filho")
+        let dados = {}
+        if  (this.state && this.state.dados) {
+            dados = this.state.dados       
+           
+        }
         
         return (
+
+           
              <CadastroBase 
+                entidade={this.entidade}
                 definicaoTituloTela={<span>Cadastro de pessoas</span>}
                 definicaoCampos={
                     <div className="definicacaoCampos">
+                         <input value={this.entidade.nome}/>
                         <div className="form-row">
                             <div className="form-group col-md-2">
                                 <label htmlFor="id">Id</label>

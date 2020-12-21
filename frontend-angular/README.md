@@ -7,10 +7,10 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-ng serve
+npm start
 ```
-O serviço é startado na porta 4200.
-Para acessar o sistema, acesse por exemplo o link: http://localhost:4200/pessoas/pesquisa
+O serviço é startado na porta 8080.
+Para acessar o sistema, acesse por exemplo o link: http://localhost:8080/pessoas/pesquisa
 
 
 ### Tecnologias utilizadas no projeto:
