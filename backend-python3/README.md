@@ -1,4 +1,4 @@
-# backend-python
+# backend-python3
 
 ## Project setup  - Necessário ter instalado:
 * Postgres instalado e iniciado (host: localhost:5432, usuário: postgres, senha: 123456, banco: vendas vazio)
