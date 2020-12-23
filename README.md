@@ -12,8 +12,8 @@ São 2 cruds: cadastro de pessoa e cadastro de produto.
 * Backend com .Net Core
 
 * Frontend com Vuejs
-* Frontend com Angular (não finalizado)
-* Frontend com ReactJS
+* Frontend com Angular 
+* Frontend com ReactJS (não finalizado)
 
 ## Telas do projeto:
 
