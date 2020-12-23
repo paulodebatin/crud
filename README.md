@@ -9,6 +9,7 @@ São 2 cruds: cadastro de pessoa e cadastro de produto.
 * Backend com Java e Quarkus
 * Backend com Nodejs
 * Backend com Python
+* Backend com .Net Core
 
 * Frontend com Vuejs
 * Frontend com Angular
